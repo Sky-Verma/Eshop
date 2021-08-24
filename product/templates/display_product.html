@@ -1,0 +1,28 @@
+{%extends 'layout.html'%}
+{%load static%}
+
+{%block body%}
+<br><br>
+  <div class="heading">
+    <h1>Our Products</h1>
+  </div>
+  
+  {% for product in products %}
+  <img src="{{product.product_image.url}}" alt="Product Image" style="height: 20vh; ">
+<div class="product_name">
+    Product Name :  {{product.product_name}}
+</div>
+  <div class="product_code">
+    Product Code :e-{{product.product_code}} 
+  </div>
+<div class="product_price">
+    Product Price :  ${{product.product_price}}
+</div>
+
+  <h4><a href="edit/{{product.id}}">Edit this</a></h4> 
+  <h4><a href="delete/{{ product.id }}">Delete</a></h4> <br>
+  ==================================================================<br>
+  {% empty %}
+        There are no Products.
+    {% endfor %}
+{%endblock body%}

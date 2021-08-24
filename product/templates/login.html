@@ -1,0 +1,24 @@
+{%extends 'layout.html'%}
+{%load static%}
+{%block css%}
+<link rel="stylesheet" href="{%static 'css/signup.css'%}">
+{%endblock css%}
+{%block title%}
+Register
+{%endblock title%}
+{%block body%}
+
+  <section class="login-clean">
+        <form method="post">
+                {% csrf_token %}
+            <h2 class="type">Login</h2><br>
+            <div class="form-group"><input class="form-control" type="email" name="input_email" placeholder="Email"></div>
+            <div class="form-group"><input class="form-control" type="password" name="input_password" placeholder="Password"></div>
+            <div class="form-group"><button class="btn btn-success btn-block" type="submit">Register</button></div>
+             <center><h5>Not a User?  <a href="{% url 'signup' %}">Register Here!</a></h5> </center>
+        </form>
+               
+    </section>
+
+
+{%endblock body%}

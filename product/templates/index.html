@@ -1,0 +1,121 @@
+{%extends 'layout.html'%}
+{%load static%}
+{%block title%}
+
+Home
+
+{%endblock title%}
+{%block css%}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="{%static 'css/Simple-Slider.css'%}">
+    <link rel="stylesheet" href="{%static 'css/Bootstrap-Cards-v2.css'%}">
+    <link rel="stylesheet" href="{%static 'css/Hover-cards.css'%}"> 
+{%endblock css%}
+{%block body%}
+
+
+
+ <div class="simple-slider">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide slide3" style="background: url(../static/images/s3.jpg) center center / cover no-repeat;"></div>
+                <div class="swiper-slide slide1" style="background: url(../static/images/s1.jpg) center center / cover no-repeat;"></div>
+                <div class="swiper-slide slide2" style="background: url(../static/images/s2.jpg) center center / cover no-repeat;"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+
+      <div >
+
+        <br>
+        <br>
+     <center><h2>
+        Our Latest Products
+      </h2></center> 
+<hr style="height: 20px; color: blue;"><section>
+{%for product in products%}
+
+
+<div class="row pb-5 mb-4">
+        
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <!-- Card-->
+            <div class="card rounded shadow-sm border-0">
+                <div class="card-body p-0">
+                    <div class="bg-primary px-5 py-4 text-center card-img-top"><img src="{{product.product_image.url}}" alt="..." width="100" class="rounded-circle mb-2 img-thumbnail d-block mx-auto">
+                        <h5 class=" mb-0">{{product.product_name}}</h5>
+                        <p class="mb-0">Product Code : e-{{product.product_code}}</p>
+                        <p class="mb-0">Product Price : ${{product.product_price}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+{%endfor%}</section>
+
+<br><br>
+ <center><a href="{% url 'ourproduct' %}" class="btn btn-primary" style="text-align: center;">View More</a></center>
+
+ <br>
+ 
+ <br><br><br>
+<section>
+<center> <div class="heading pb-5" style="text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:rgb(245, 154, 35) ">
+      <h1>Why e-shop?</h1>
+    </div>
+</center>
+<br><br>
+ 
+ <div class="container">
+
+    
+    <div class="cards-container">
+        <div class="card card1">
+            <div class="card-body">
+                <h3 class="card-title">Product : 
+Original and Reliable Product</h3>
+                <p class="card-text small">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="go-corner">
+                    <div class="go-arrow"><div class="go-arrow">→</div></div>
+                </div>
+            </div>
+        </div>
+        <div class="card card1">
+            <div class="card-body">
+                <h3 class="card-title">Price :
+Cheaper Price</h3>
+                <p class="card-text small">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="go-corner">
+                    <div class="go-arrow"><div class="go-arrow">→</div></div>
+                </div>
+            </div>
+        </div>
+        <div class="card card1">
+            <div class="card-body">
+                <h3 class="card-title">Shipping : 
+Faster On-time Shipping</h3>
+                <p class="card-text small">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="go-corner">
+                    <div class="go-arrow"><div class="go-arrow">→</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+  </div>
+
+  
+     </div></section>
+      {%endblock body%}
+
+
+
+      {%block js%}
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{%static 'js/Simple-Slider.js'%}"></script>
+   
+
+      {%endblock js%}

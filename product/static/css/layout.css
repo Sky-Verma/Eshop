@@ -1,0 +1,10 @@
+body{
+    font-family: Raleway;
+    overflow-x: hidden;
+}
+.navbar-brand{
+    font-family: Pattaya;
+}
+section{
+    min-height: 100vh;
+}

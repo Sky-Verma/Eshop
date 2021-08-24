@@ -1,0 +1,41 @@
+{%extends 'layout.html'%}
+{%load static%}
+{%block title%}
+Upload
+{%endblock title%}
+{%block css%}
+<link rel="stylesheet" href="{%static 'css/upload.css'%}">
+{%endblock css%}
+{%block body%}
+
+<br><br><br>
+
+
+<h1
+      style="text-align: center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:darkblue"
+    >
+      Upload Files
+    </h1>
+    <br><br>
+
+    
+
+    <form action="upload" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="form-group files color"><input type="file" name="file"></div>
+      <input
+        type="submit"
+        value="Save"
+        class="btn btn-success"
+        style="margin-left: 45vw;"
+        
+      />
+    </form>
+    <hr />
+
+    <a
+      href="{% url 'uploaded-files' %}"
+      style="text-decoration: none; font-family:monospace; color:navy; font-size:x-large; margin-top:40px;"
+      >View Uploaded files</a
+    >
+{%endblock body%}

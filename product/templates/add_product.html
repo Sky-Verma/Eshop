@@ -1,0 +1,13 @@
+{%extends 'layout.html'%}
+{%load static%}
+
+{%block body%}
+   <section> <h1>Add Product</h1>
+    <form action="save" method="POST">
+      {% csrf_token %} Product Name:
+      <input type="text" name="product_name" /><br />
+      Product Code: <input type="text" name="product_code" /><br />
+      Product Price: <input type="number" name="product_price" /><br />
+      <input type="submit" value="Add Product" />
+    </form></section>
+    {%endblock body%}

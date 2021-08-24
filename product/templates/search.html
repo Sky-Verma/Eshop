@@ -1,0 +1,57 @@
+{%extends 'layout.html'%}
+{%load static%}
+{%block title%}
+Search
+{%endblock title%}
+{%block css%}
+
+<link rel="stylesheet" href="{%static 'css/search.css'%}">
+
+{%endblock css%}
+
+{%block body%}
+     
+<br><br><br><br>
+<div class="heading" >
+    Search For Your Product
+</div>
+<br><br>
+        <form class="form" method="POST">
+            {% csrf_token %}
+          <input class="srch-bar"  name="search" placeholder="Search Product.." ><button type="submit" class="srch-btn">Search</button>
+        </form>
+      
+    
+ 
+                  
+                    
+                        {% if sr %}
+
+                        <div class="heading">
+        Results For Your Search:
+    </div> <div class="row" style="margin-left:200px"></div>
+      <br><br><br><br><br>
+
+                        {% for rows in sr %}
+        
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <!-- Card-->
+            <div class="card rounded shadow-sm border-0">
+                <div class="card-body p-0">
+                    <div class="bg-primary px-5 py-4 text-center card-img-top"><img src="{{rows.product_image.url}}" alt="..." width="100" class="rounded-circle mb-2 img-thumbnail d-block mx-auto">
+                        <h5 class=" mb-0">{{rows.product_name}}</h5>
+                        <p class="mb-0">Product Code:e-{{rows.product_code}} </p>
+                        <p class="mb-0">Product price:${{rows.product_price}} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+                                
+                        {% endfor %}
+                     
+                        {% endif%}
+  <br><br><br><br><br>  <br>
+{%endblock body%}
+                   
+                    
+  

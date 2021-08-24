@@ -1,0 +1,101 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="{% static 'images/aa.png' %}" sizes="16x12">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/Fixed-navbar-starting-with-transparency-1.css'%}">
+    <link rel="stylesheet" href="{%static 'css/Fixed-navbar-starting-with-transparency.css'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Shop | {%block title%}
+        {%endblock title%}
+    </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link rel="stylesheet" href="{%static 'css/Pretty-Footer.css'%}">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+      rel="stylesheet"
+    /> <link rel="stylesheet" href="{%static 'css/layout.css'%}" />
+    {%block css%}
+
+   
+    {%endblock css%}
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-transparency">
+        <div class="container">
+            <div class="navbar-header"><a class="navbar-brand" href="{% url 'index' %}">Hamro Shop</a><button data-toggle="collapse" class="navbar-toggle collapsed" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar top-bar"></span><span class="icon-bar middle-bar"></span><span class="icon-bar bottom-bar"></span></button></div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav navbar-right">
+                 <li ><a href="{% url 'index' %}" >Home</a></li>
+           <li ><a href="{% url 'ourproduct' %}" >Products</a></li> 
+           <li ><a href="{% url 'search' %}" >Search</a></li>
+          <li ><a href="{% url 'signup' %}" >Register</a></li>
+          <li ><a href="{% url 'login' %}" >Login</a></li>
+            <li ><a href="{% url 'contact' %}" >Contact</a></li>
+            {%if request.user.is_staff%}
+            <li ><a href="{% url 'upload' %}" >Upload Files</a></li>
+            {%endif%}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    {%block body%}
+
+    {%endblock body%}
+<footer>
+        <div class="row">
+            <div class="col-sm-6 col-md-4 footer-navigation">
+                <h3><a href="{%url 'index'%}">⛪ e-Shop Nepal</a></h3>
+            </div>
+            <div class="col-sm-6 col-md-4 footer-contacts">
+                <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+                    <p><span class="new-line-span">Hadigaun,Kathmandu</p>
+                </div>
+                <div><i class="fa fa-phone footer-contacts-icon"></i>
+                    <p class="footer-center-info email text-left"> +977-9867813880,+977-9812121212</p>
+                </div>
+                <div><i class="fa fa-envelope footer-contacts-icon"></i>
+                    <p> <a href="mailto:info@eshop.com,khsafal47@gmail.com" target="_blank">info@eshop.com,khsafal47@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-4 footer-about">
+                <h4>We provide the services and products just like your taste. Try us and have the best experience of shopping. </p>
+               
+            </div>
+        </div>
+    </footer>
+    <script src="{%static 'js/jquery-3.2.1.min.js'%}"></script>
+    <script src="{%static 'js/bootstrap.min.js'%}"></script>
+    <script src="{%static 'js//Fixed-navbar-starting-with-transparency.js'%}"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
+      integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    {%block js%}
+    
+    {%endblock js%}
+</body>
+</html>

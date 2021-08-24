@@ -1,0 +1,29 @@
+.heading {
+  font-size: 30px;
+  color: brown;
+  font-family: serif;
+  text-align: center;
+  width: 100%;
+  padding-top: 20px;
+}
+.form{
+    height: 10vh;
+    width: 40vw;
+    margin-left: 30vw;
+    min-width:200px;
+}
+.srch-bar{
+    border-bottom: 2px black solid;border-left: 2px black solid;border-top: 2px black solid;border-right: none;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    width: 70%;
+    text-align: center;
+}
+.srch-btn{
+    border-bottom: 2px black solid;
+    width:30%;
+    border-right: 2px black solid;border-top: 2px black solid;border-left: none;
+    background: rgb(197, 197, 197);
+    color: rgb(0, 0, 0);
+    min-width: 60px;
+}

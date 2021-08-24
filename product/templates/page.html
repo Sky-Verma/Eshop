@@ -1,0 +1,104 @@
+{%extends 'layout.html'%}
+{%load static%}
+
+{%block body%}
+    <div class="container-fluid">
+      <div id="navbar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-info">
+          <a
+            class="navbar-brand text-warning font-weight-bold"
+            href="{% url 'index' %}"
+            >E-Shop</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link text-dark" href="{% url 'index' %}"
+                >Home</a
+              >
+              <a
+                class="nav-item nav-link text-dark"
+                href="{% url 'ourproduct' %}"
+                >Products</a
+              >
+              <a class="nav-item nav-link text-dark" href="{% url 'login' %}"
+                >Login</a
+              >
+              <a class="nav-item nav-link text-dark" href="{% url 'signup' %}"
+                >Register</a
+              >
+              <a class="nav-item nav-link text-dark" href="{% url 'contact' %}"
+                >Contact</a
+              >
+              <a class="nav-item nav-link text-dark" href="{% url 'search' %}"
+                >Search Product</a
+              >
+            </div>
+          </div>
+          <div class="user-deetails" style="float: left;">
+            <span
+              style="float: left; padding-right:20px; text-transform: uppercase; font-weight:bold;"
+              ><span style="text-transform:capitalize">Welcome,</span
+              >{{user}}</span
+            >
+            <a
+              href="{% url 'logout' %}"
+              style="font-weight: 700; color:rgb(141, 41, 5); text-decoration:none"
+              >Logout</a
+            >
+          </div>
+        </nav>
+        <!-- //Products -->
+        <div class="row">
+          {% for product in products %}
+          <div class="card col-md-3 mr-4 my-4" style="width: 18rem;">
+            <div class="image">
+              <img
+                src="{{product.product_image.url}}"
+                style="height: 350px; width:225px;"
+              />
+            </div>
+            <div class="card-header font-weight-bold">
+              {{product.product_name}}
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                Product Code:e-{{product.product_code}}
+              </li>
+              <li class="list-group-item">
+                Product Price : ${{product.product_price}}
+              </li>
+
+              <li class="list-group-item ">
+                <button type="button" class="btn-primary col-lg-12">
+                  Buy Now
+                </button>
+              </li>
+              <li class="list-group-item">
+                <button type="button" class="btn-warning col-lg-12">
+                  Add to Cart
+                </button>
+              </li>
+            </ul>
+          </div>
+          {% empty %} {% endfor %}
+        </div>
+      </div>
+    </div>
+    <!-- {% if request.user.is_authenticated %} Welcome
+    <h3>{{user}}!!</h3>
+    <nobr></nobr>Greetings from E-shop{% else %} Unauthorized {% endif %}
+    <br />
+    <a href="{% url 'logout' %}">Logout</a>
+    <br /> -->
+{%endblock body%}
